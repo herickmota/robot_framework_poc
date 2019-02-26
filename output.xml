@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20190225 21:35:19.984" generator="Robot 3.0.2 (Python 2.7.10 on darwin)">
+<suite source="/Users/herickmota/projetos/Python/Sovos Training/tests.robot" id="s1" name="Tests">
+<kw type="setup" name="Open Site" library="config">
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the given ``url``.</doc>
+<arguments>
+<arg>${url}</arg>
+<arg>${browser}</arg>
+</arguments>
+<msg timestamp="20190225 21:35:20.101" level="INFO">Opening browser 'chrome' to base url 'https://www.amazon.com'.</msg>
+<status status="PASS" endtime="20190225 21:35:24.468" starttime="20190225 21:35:20.101"></status>
+</kw>
+<status status="PASS" endtime="20190225 21:35:24.469" starttime="20190225 21:35:20.101"></status>
+</kw>
+<test id="s1-t1" name="Search for a product">
+<kw name="When the user search a product" library="home_kw">
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>${searchBar}</arg>
+<arg>${product}</arg>
+</arguments>
+<msg timestamp="20190225 21:35:24.471" level="INFO">Typing text 'iPhone X' into text field 'id=twotabsearchtextbox'.</msg>
+<status status="PASS" endtime="20190225 21:35:24.747" starttime="20190225 21:35:24.471"></status>
+</kw>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<arguments>
+<arg>10 sec</arg>
+<arg>10 sec</arg>
+<arg>Click Element</arg>
+<arg>${search_btn}</arg>
+</arguments>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click element identified by ``locator``.</doc>
+<arguments>
+<arg>${search_btn}</arg>
+</arguments>
+<msg timestamp="20190225 21:35:24.748" level="INFO">Clicking element 'xpath=//input[@value='Go']'.</msg>
+<status status="PASS" endtime="20190225 21:35:27.819" starttime="20190225 21:35:24.748"></status>
+</kw>
+<status status="PASS" endtime="20190225 21:35:27.819" starttime="20190225 21:35:24.747"></status>
+</kw>
+<status status="PASS" endtime="20190225 21:35:27.819" starttime="20190225 21:35:24.470"></status>
+</kw>
+<kw name="Then the result is displayed" library="search_result_kw">
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<arguments>
+<arg>${search_body}</arg>
+</arguments>
+<msg timestamp="20190225 21:35:27.837" level="INFO">Current page contains element 'xpath=//span[@data-component-type='s-search-results']'.</msg>
+<status status="PASS" endtime="20190225 21:35:27.838" starttime="20190225 21:35:27.820"></status>
+</kw>
+<status status="PASS" endtime="20190225 21:35:27.838" starttime="20190225 21:35:27.820"></status>
+</kw>
+<kw name="And the user gets the title" library="search_result_kw">
+<kw name="Get Text" library="SeleniumLibrary">
+<doc>Returns the text value of element identified by ``locator``.</doc>
+<arguments>
+<arg>${first_result}</arg>
+</arguments>
+<assign>
+<var>${texto}</var>
+</assign>
+<msg timestamp="20190225 21:35:27.870" level="INFO">${texto} = Apple iPhone X (64GB) - Silver [Locked to Simple Mobile Prepaid]</msg>
+<status status="PASS" endtime="20190225 21:35:27.870" starttime="20190225 21:35:27.838"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${texto}</arg>
+</arguments>
+<status status="PASS" endtime="20190225 21:35:27.870" starttime="20190225 21:35:27.870"></status>
+</kw>
+<status status="PASS" endtime="20190225 21:35:27.870" starttime="20190225 21:35:27.838"></status>
+</kw>
+<status status="PASS" endtime="20190225 21:35:27.871" critical="yes" starttime="20190225 21:35:24.469"></status>
+</test>
+<kw type="teardown" name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" endtime="20190225 21:35:27.985" starttime="20190225 21:35:27.872"></status>
+</kw>
+<doc>This File contains the test cases for the project</doc>
+<status status="PASS" endtime="20190225 21:35:27.985" starttime="20190225 21:35:19.987"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="0" pass="1">Critical Tests</stat>
+<stat fail="0" pass="1">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat fail="0" id="s1" name="Tests" pass="1">Tests</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
